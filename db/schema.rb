@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170310151142) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text     "author"
     t.text     "content"
@@ -23,8 +26,8 @@ ActiveRecord::Schema.define(version: 20170310151142) do
   create_table "comments_stories", id: false, force: :cascade do |t|
     t.integer "story_id",   null: false
     t.integer "comment_id", null: false
-    t.index ["comment_id", "story_id"], name: "index_comments_stories_on_comment_id_and_story_id"
-    t.index ["story_id", "comment_id"], name: "index_comments_stories_on_story_id_and_comment_id"
+    t.index ["comment_id", "story_id"], name: "index_comments_stories_on_comment_id_and_story_id", using: :btree
+    t.index ["story_id", "comment_id"], name: "index_comments_stories_on_story_id_and_comment_id", using: :btree
   end
 
   create_table "stories", force: :cascade do |t|
