@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Comments</h1>
+<h1><%= @story.title %></h1>
+<h3><%= @story.header %></h3>
+<p><%= @story.body %></p>
 
 <table>
   <thead>
@@ -16,8 +18,8 @@
       <tr>
         <td><%= comment.author %></td>
         <td><%= comment.content %></td>
-        <td><%= link_to 'Edit', edit_story_comment_path(@story, comment) %></td>
-        <td><%= link_to 'Destroy', story_comment_path(@story, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar Comentario', edit_story_comment_path(@story, comment) %></td>
+        <td><%= link_to 'Eliminar Comentario', story_comment_path(@story, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +27,5 @@
 
 <br>
 
-<%= link_to 'New Comment', new_story_comment_path %>
+<%= link_to 'Nuevo Comentario', new_story_comment_path %>
+<%= link_to 'Noticias', stories_path %>

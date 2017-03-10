@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stories</h1>
+<h1>Noticias</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Header</th>
-      <th>Body</th>
+      <th>Título</th>
+      <th>Encabezado</th>
+      <th>Cuerpo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,10 +18,9 @@
         <td><%= story.title %></td>
         <td><%= story.header %></td>
         <td><%= story.body %></td>
-        <td><%= link_to 'Show', story %></td>
-        <td><%= link_to 'Edit', edit_story_path(story) %></td>
-        <td><%= link_to 'Comentarios', story_comments_path(story) %></td>
-        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver Noticia', story_comments_path(story) %></td>
+        <td><%= link_to 'Editar Noticia', edit_story_path(story) %></td>
+        <td><%= link_to 'Eliminar Noticia', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Story', new_story_path %>
+<%= link_to 'Nueva Noticia', new_story_path %>

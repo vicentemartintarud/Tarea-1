@@ -14,16 +14,16 @@
   <%=f.hidden_field :story_id, value: @story.id %>
 
   <div class="field">
-    <%= f.label :author %>
+    <%= f.label :Nombre %>
     <%= f.text_area :author %>
   </div>
 
   <div class="field">
-    <%= f.label :content %>
+    <%= f.label :Contenido %>
     <%= f.text_area :content %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :"Publicar Comentario" %>
   </div>
 <% end %>
