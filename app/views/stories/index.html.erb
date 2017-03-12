@@ -2,6 +2,8 @@
 
 <h1>Noticias</h1>
 
+<%= link_to 'Nueva Noticia', new_story_path %>
+
 <table>
   <thead>
     <tr>
@@ -13,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @stories.each do |story| %>
+    <% @stories.sort_by(&:created_at).reverse.first(10).each do |story| %>
       <tr>
         <td><%= story.title %></td>
         <td><%= story.header %></td>
@@ -26,14 +28,20 @@
   </tbody>
 </table>
 
-<% @stories.each do |story| %>
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
+<% @stories.sort_by(&:created_at).reverse.first(10).each do |story| %>
+<div class="row-md-6">
+  <div class="col-md-4 col-md-4">
+    <div class="thumbnail"style="height:400px; width:380px">
       <div class="caption">
-        <h3><%=story.title%></h3>
-        <h4><%=story.header%></h4>
+        <h4><%=story.title%></h5>
+        <h6><%=story.header%></h6>
         <p><%=story.body%></p>
+        <%=story.created_at.to_formatted_s(:db)%>
+        <td rowspan="100"></td>
+        <span style="padding-left:20px"></span>
+        <span class="label label-default"><%=story.comments.count%></span>
+        <span style="padding-right:20px"></span>
+        <%=link_to 'Ver', story_comments_path(story), :class=>"btn btn-primary btn-sm", :style=>'color:white'%>
         <p></p>
       </div>
     </div>
@@ -42,5 +50,3 @@
 <% end %>
 
 <br>
-
-<%= link_to 'Nueva Noticia', new_story_path %>
