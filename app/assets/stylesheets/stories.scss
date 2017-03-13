@@ -1,3 +1,17 @@
 // Place all the styles related to the Stories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*Normalize html and body elements,this style is just good to have*/
+html,body{
+  margin:0;
+  padding:0;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    right: 0;
+    height:100px;
+}

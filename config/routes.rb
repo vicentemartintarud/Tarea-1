@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'stories#index'
+  get 'stories/admin'
   resources :stories do
     resources :comments
   end

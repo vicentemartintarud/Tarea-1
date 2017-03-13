@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Administración</h1>
+
+<%= link_to 'Volver a Noticias', stories_path, :class=>"btn btn-primary btn-sm", :style=>'color:white'%>
+<%= link_to 'Nueva Noticia', new_story_path, :class=>"btn btn-primary btn-sm", :style=>'color:white'%>
+
+<table class="table table-hover">  <thead>
+    <tr>
+      <th>Noticia</th>
+      <th>Fecha publicación</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stories.sort_by(&:created_at).reverse.first(10).each do |story| %>
+      <tr>
+        <td><%= story.title %></td>
+        <td><%=story.created_at.to_formatted_s(:db)%></td>
+        <td><%= link_to 'Editar Noticia', edit_story_path(story), :class=>"btn btn-warning btn-xs"%></td>
+        <td><%= link_to 'Eliminar Noticia', story, method: :delete, data: { confirm: 'Are you sure?' },  :class=>"btn btn-danger btn-xs" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

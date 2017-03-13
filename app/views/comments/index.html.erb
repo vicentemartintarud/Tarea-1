@@ -4,11 +4,15 @@
 <h3><%= @story.header %></h3>
 <p><%= @story.body %></p>
 
+<%= link_to 'Noticias', stories_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+
+<%= link_to 'Nuevo Comentario', new_story_comment_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+
 <table>
   <thead>
     <tr>
-      <th>Author</th>
-      <th>Content</th>
+      <th>Autor</th>
+      <th>Comentario</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,6 +31,3 @@
 
 
 <br>
-
-<%= link_to 'Nuevo Comentario', new_story_comment_path %>
-<%= link_to 'Noticias', stories_path %>

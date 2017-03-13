@@ -2,47 +2,42 @@
 
 <h1>Noticias</h1>
 
-<%= link_to 'Nueva Noticia', new_story_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Título</th>
-      <th>Encabezado</th>
-      <th>Cuerpo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%=link_to 'Administración', stories_admin_path, :class=>"btn btn-info btn-sm", :style=>'color:white'%>
 
-  <tbody>
-    <% @stories.sort_by(&:created_at).reverse.first(10).each do |story| %>
-      <tr>
-        <td><%= story.title %></td>
-        <td><%= story.header %></td>
-        <td><%= story.body %></td>
-        <td><%= link_to 'Ver Noticia', story_comments_path(story) %></td>
-        <td><%= link_to 'Editar Noticia', edit_story_path(story) %></td>
-        <td><%= link_to 'Eliminar Noticia', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <% @stories.sort_by(&:created_at).reverse.first(10).each do |story| %>
-<div class="row-md-6">
-  <div class="col-md-4 col-md-4">
-    <div class="thumbnail"style="height:400px; width:380px">
+<div class="row-md-2">
+  <div class="col-xs-offset-1 col-md-4 col-md-4">
+    <div class="thumbnail"style="height:600px; width:500px">
       <div class="caption">
-        <h4><%=story.title%></h5>
-        <h6><%=story.header%></h6>
-        <p><%=story.body%></p>
+        <h3><%=story.title%></h3>
+        <h4><%=story.header%></h4>
+        <% @lim_story = ''%>
+        <%i = 0
+          words = story.body.split
+          while 1
+            begin
+              if @lim_story.length + words[i].length < 1000
+                @lim_story += words[i] + ' '
+                i += 1
+              else
+                @lim_story += '... '
+                break
+              end
+            rescue
+              break
+            end
+          end
+        %>
+        <p><%=@lim_story%></p>
+        <div class="footer">
         <%=story.created_at.to_formatted_s(:db)%>
-        <td rowspan="100"></td>
         <span style="padding-left:20px"></span>
         <span class="label label-default"><%=story.comments.count%></span>
         <span style="padding-right:20px"></span>
         <%=link_to 'Ver', story_comments_path(story), :class=>"btn btn-primary btn-sm", :style=>'color:white'%>
-        <p></p>
+        </div>
       </div>
     </div>
   </div>
