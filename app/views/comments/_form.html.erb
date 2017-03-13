@@ -24,6 +24,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit :"Publicar Comentario" %>
+    <%= f.submit :"Publicar Comentario", :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+    <%= link_to 'Atrás', story_comments_path(@story), :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
   </div>
 <% end %>
