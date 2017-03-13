@@ -8,8 +8,9 @@
 
 <%= link_to 'Nuevo Comentario', new_story_comment_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
 
-<table>
-  <thead>
+<br></br>
+
+<table class="table table-hover">  <thead>  <thead>
     <tr>
       <th>Autor</th>
       <th>Comentario</th>
@@ -23,7 +24,7 @@
         <td><%= comment.author %></td>
         <td><%= comment.content %></td>
         <td><%= link_to 'Editar Comentario', edit_story_comment_path(@story, comment) %></td>
-        <td><%= link_to 'Eliminar Comentario', story_comment_path(@story, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar Comentario', story_comment_path(@story, comment), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar el comentario?' } %></td>
       </tr>
     <% end %>
   </tbody>

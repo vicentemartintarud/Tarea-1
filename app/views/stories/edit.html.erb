@@ -1,6 +1,4 @@
 <h1>Editar Noticia</h1>
 
+<%= link_to 'Atrás', stories_admin_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
 <%= render 'form', story: @story %>
-
-<%= link_to 'Ver Noticia', @story %> |
-<%= link_to 'Atrás', stories_path %>
