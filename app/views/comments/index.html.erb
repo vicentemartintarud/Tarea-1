@@ -1,34 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @story.title %></h1>
-<h3><%= @story.header %></h3>
-<p><%= @story.body %></p>
+<div class="row-md-8">
+  <div class="col-xs-offset-1 col-md-10 col-xs-offset-1">
 
-<%= link_to 'Noticias', stories_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+    <h1><%= @story.title %></h1>
+    <h3><%= @story.header %></h3>
+    <p><%= @story.body %></p>
 
-<%= link_to 'Nuevo Comentario', new_story_comment_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+    <%= link_to 'Nuevo Comentario', new_story_comment_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
 
-<br></br>
+    <%= link_to 'Volver a Noticias', stories_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
 
-<table class="table table-hover">  <thead>  <thead>
-    <tr>
-      <th>Autor</th>
-      <th>Comentario</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <br></br>
 
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.author %></td>
-        <td><%= comment.content %></td>
-        <td><%= link_to 'Editar Comentario', edit_story_comment_path(@story, comment) %></td>
-        <td><%= link_to 'Eliminar Comentario', story_comment_path(@story, comment), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar el comentario?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="table table-hover">  <thead>  <thead>
+        <tr>
+          <th>Autor</th>
+          <th>Comentario</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @comments.each do |comment| %>
+          <tr>
+            <td><%= comment.author %></td>
+            <td><%= comment.content %></td>
+            <td><%= link_to 'Editar', edit_story_comment_path(@story, comment), :class=>"btn btn-warning btn-xs", :style=>'color:white'%></td>
+            <td><%= link_to 'Eliminar', story_comment_path(@story, comment), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar el comentario?' }, :class=>"btn btn-danger btn-xs", :style=>'color:white' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
 
-<br>
+  </div>
+</div>

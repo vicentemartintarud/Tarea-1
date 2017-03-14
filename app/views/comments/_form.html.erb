@@ -13,18 +13,24 @@
 
   <%=f.hidden_field :story_id, value: @story.id %>
 
-  <div class="field">
-    <%= f.label :Nombre %>
-    <%= f.text_area :author %>
-  </div>
+  <div class="form-group">
+    <div class="col-sm-5">
+      <div class="field">
+        <%= f.label :Nombre %>
+        <%= f.text_area :author, cols: 1, rows: 1, class:"form-control", placeholder: 'Ingrese su nombre', style:"font-size:15px; line-height:1.5" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :Contenido %>
-    <%= f.text_area :content %>
-  </div>
+      <div class="field">
+        <%= f.label :Contenido %>
+        <%= f.text_area :content, cols: 5, rows: 10, class:"form-control", placeholder: 'Ingrese comentario', style:"font-size:15px; line-height:1.5"  %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit :"Publicar Comentario", :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
-    <%= link_to 'Atrás', story_comments_path(@story), :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+      <br></br>
+
+      <div class="actions">
+        <%= f.submit :"Publicar Comentario", :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+        <%= link_to 'Atrás', story_comments_path(@story), :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+      </div>
+    </div>
   </div>
 <% end %>

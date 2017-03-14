@@ -10,24 +10,27 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+    <div class="col-md-8">
+      <div class="field">
+        <%= f.label :Título %>
+        <%= f.text_area :title, cols: 1, rows: 2, class:"form-control", placeholder: 'Ingrese el título de la noticia', style:"font-size:25px; line-height:1.5" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :Título %>
-    <%= f.text_area :title %>
-  </div>
+      <div class="field">
+        <%= f.label :Bajada %>
+        <%= f.text_area :header, :maxlength => 250 , cols: 1, rows: 4, class:"form-control", placeholder: 'Ingrese bajada de la noticia', style:"font-size:20px; line-height:1.5" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :Bajada %>
-    <%= f.text_area :header, :maxlength => 250 %>
-  </div>
+      <div class="field">
+        <%= f.label :Cuerpo %>
+        <%= f.text_area :body, cols: 1, rows: 10, class:"form-control", placeholder: 'Ingrese el cuerpo de la noticia', style:"font-size:15px; line-height:1.5" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :Cuerpo %>
-    <%= f.text_area :body %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit :"Publicar Noticia", :class=>"btn btn-primary btn-sm", :style=>'color:white'%>
-    <%= link_to 'Atrás', stories_admin_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+      <div class="actions">
+        <%= f.submit :"Publicar Noticia", :class=>"btn btn-primary btn-sm", :style=>'color:white'%>
+        <%= link_to 'Atrás', stories_admin_path, :class=>"btn btn-primary btn-sm", :style=>'color:white' %>
+      </div>
+    </div>
   </div>
 <% end %>
