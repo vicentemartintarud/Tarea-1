@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170310151142) do
     t.text     "title"
     t.text     "header"
     t.text     "body"
+    t.text     "story_lim"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

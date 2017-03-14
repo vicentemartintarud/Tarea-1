@@ -16,24 +16,8 @@
         <div class="caption">
           <h3><%=story.title%></h3>
           <h4><%=story.header%></h4>
-          <% @lim_story = ''%>
-          <%i = 0
-            words = story.body.split
-            while 1
-              begin
-                if @lim_story.length + words[i].length < 1000
-                  @lim_story += words[i] + ' '
-                  i += 1
-                else
-                  @lim_story += '... '
-                  break
-                end
-              rescue
-                break
-              end
-            end
-          %>
-          <p><%=@lim_story%></p>
+
+          <p><%=story.story_lim%></p>
           <div class="footer">
           <%=story.created_at.to_formatted_s(:db)%>
             <span style="padding-left:20px"></span>
